@@ -164,16 +164,13 @@ These facts motivate the modeling section: pricing granularity is not only a tec
 
 **Guipry-Messac.** Guipry-Messac covers 92.0 km² and had 7,243 inhabitants in 2022 (see left-hand side of Figure 2). It is a valley municipality located along the Vilaine River, connected to the broader Vilaine network and local tributaries such as the Semnon in the surrounding area. The territory is covered by the *Plan de Prévention du Risque Inondation* (PPRI) “Moyenne Vilaine et affluents” (approved in 2005), which documents flood-prone areas and provides the regulatory basis for land-use constraints in exposed zones. At the basin scale, territorial diagnostics highlight the recurrence of major flood episodes (e.g., 1995, 1999, 2001, and the winter 2013–2014 sequence) and emphasize the role of downstream and upstream hydraulic infrastructure (including the Arzal dam near the estuary and several dams on the upper Vilaine) in shaping water levels and flood propagation ([Ville de Guipry-Messac: PPRI (Plan de Prévention du Risque Inondation)](https://www.guipry-messac.fr/vie-municipale/urbanisme/ppri/); [Préfecture d’Ille-et-Vilaine: diagnostic territorial — cartographie, secteur Guipry-Messac](https://www.ille-et-vilaine.gouv.fr/contenu/telechargement/64878/500662/file/Annexe_2_Diagnostic_territorial_Carto_maj2024.pdf); [Préfecture d’Ille-et-Vilaine: annexe 1 — diagnostic territorial, bassin de la Vilaine](https://www.ille-et-vilaine.gouv.fr/contenu/telechargement/65211/502712/file/Annexe_1_Diagnostic_territorial.pdf); [Sandre/Eaufrance: La Vilaine \[J---0060\]](https://www.sandre.eaufrance.fr/geo/CoursEau_Carthage2017/J---0060); [Sandre/Eaufrance: Le Semnon \[J76-0300\]](https://www.sandre.eaufrance.fr/geo/CoursEau_Carthage2017/J76-0300)).
 
-> **À reprendre.** Tempête Herminia, le 28 janvier 2025.
-
 **Val d’Anast.** Val d’Anast covers 77.9 km² and had 3,925 inhabitants in 2022 (see right-hand side of Figure 2). Created in 2017 from the merger of Campel and Maure-de-Bretagne, it belongs to the Vilaine basin and, more specifically, to the Aff sub-basin (a tributary of the Oust). An opinion from the regional environmental authority (MRAe Bretagne) notes that the Aff (west of the town center) and the Combs stream (to the east and south) are identified in the floodplain atlas, and that parts of the Maure-de-Bretagne center are potentially exposed to river overflow. These hydrological features make Val d’Anast a useful case to document how fine-scale exposure corridors within a commune can correlate with market outcomes such as premium dispersion and non-quoting in quote data ([MRAe Bretagne: avis sur la révision du PLU et les zonages d’assainissement de Val d’Anast](https://www.mrae.developpement-durable.gouv.fr/IMG/pdf/10403-10410_avis_plu_zaeu_zaep_valdanast_35_2023ab23_mentionsigne.pdf); [Sandre/Eaufrance: L’Aff \[J8--0240\]](https://www.sandre.eaufrance.fr/geo/CoursEau_Carthage2017/J8--0240)).
 
 <p align="center">
   <img src="/figures/Guipry.png" width="45%" alt="Guipry-Messac">
-  <img src="/figures/Guipry.png" width="45%" alt="Guipry-Messac">
 </p>
 
-<p align="center"><em>Figure 2. Guipry-Messac (left) ...</em></p>
+<p align="center"><em>Figure 2. Guipry-Messac.</em></p>
 
 <a id="app-empirical-details"></a>
 
