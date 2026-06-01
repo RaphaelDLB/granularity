@@ -26,7 +26,48 @@ The notebook is self-contained.
 
 # Exploratory quote evidence
 
+## Pilot Study: Two-Address Contrast (Thorigny-sur-Marne)
 
+As a preliminary proof-of-concept, we collected quotes for two addresses within the same municipality (Thorigny-sur-Marne, Seine-et-Marne) featuring contrasting RGA exposure levels. This pilot test confirms the coexistence of within-commune premium segmentation (Insurer C) and extensive-margin withdrawal (Insurer D) before deploying the full clustered protocol.
+
+| Insurer | Very low RGA exposure (Premium in €) | Very high RGA exposure (Premium in €) |
+| :--- | :---: | :---: |
+| **A** | 294 | 294 |
+| **B** | 572 | 572 |
+| **C** | 569 | 680 |
+| **D** | 208 | *No quote* |
+
+## Empirical Pricing Granularity
+
+<a id="app-a-1"></a>
+
+### RGA (clay shrink–swell)
+
+**Beaumont.** Beaumont covers 4.0 km² and had 10,787 inhabitants in 2022 (see left-hand side of Figure 1). Located at the foothills of the volcanic uplands of the *Plateau des Dômes* and near the Limagne plain, Beaumont is structured by the Artière valley and its alluvial deposits, at the interface with sedimentary formations (marls, clays, and limestones). In this setting, the presence of clay-rich and marl layers (often described as *argilo-calcareous* units) is consistent with sensitivity to clay shrink–swell (RGA), which is triggered by alternating drought and rehydration episodes. The *Fonds Prévention Argile* classifies Beaumont as *high* RGA exposure and reports multiple Cat-Nat recognitions for drought-related ground movements, making it a natural case to illustrate within-municipality heterogeneity and its potential implications for pricing and underwriting ([Ville de Beaumont: Les mémoires de l’eau — Beaumont](https://www.beaumont63.fr/IMG/pdf/beaumont2009-eau.pdf); [Fonds Prévention Argile: Risques Retrait-Gonflement à Beaumont](https://fonds-prevention-argile.beta.gouv.fr/rga/commune/beaumont-63032)).
+
+<p align="center">
+  <img src="/figures/Beaumont.png" width="45%" alt="Beaumont">
+</p>
+
+<p align="center"><em>Figure 1. Beaumont.</em></p>
+
+<a id="app-a-2"></a>
+
+### Flood risk (river overflow)
+
+**Guipry-Messac.** Guipry-Messac covers 92.0 km² and had 7,243 inhabitants in 2022 (see left-hand side of Figure 2). It is a valley municipality located along the Vilaine River, connected to the broader Vilaine network and local tributaries such as the Semnon in the surrounding area. The territory is covered by the *Plan de Prévention du Risque Inondation* (PPRI) “Moyenne Vilaine et affluents” (approved in 2005), which documents flood-prone areas and provides the regulatory basis for land-use constraints in exposed zones. At the basin scale, territorial diagnostics highlight the recurrence of major flood episodes (e.g., 1995, 1999, 2001, and the winter 2013–2014 sequence) and emphasize the role of downstream and upstream hydraulic infrastructure (including the Arzal dam near the estuary and several dams on the upper Vilaine) in shaping water levels and flood propagation ([Ville de Guipry-Messac: PPRI (Plan de Prévention du Risque Inondation)](https://www.guipry-messac.fr/vie-municipale/urbanisme/ppri/); [Préfecture d’Ille-et-Vilaine: diagnostic territorial — cartographie, secteur Guipry-Messac](https://www.ille-et-vilaine.gouv.fr/contenu/telechargement/64878/500662/file/Annexe_2_Diagnostic_territorial_Carto_maj2024.pdf); [Préfecture d’Ille-et-Vilaine: annexe 1 — diagnostic territorial, bassin de la Vilaine](https://www.ille-et-vilaine.gouv.fr/contenu/telechargement/65211/502712/file/Annexe_1_Diagnostic_territorial.pdf); [Sandre/Eaufrance: La Vilaine \[J---0060\]](https://www.sandre.eaufrance.fr/geo/CoursEau_Carthage2017/J---0060); [Sandre/Eaufrance: Le Semnon \[J76-0300\]](https://www.sandre.eaufrance.fr/geo/CoursEau_Carthage2017/J76-0300)).
+
+<p align="center">
+  <img src="/figures/Guipry.png" width="45%" alt="Guipry-Messac">
+</p>
+
+<p align="center"><em>Figure 2. Guipry-Messac.</em></p>
+
+<a id="app-empirical-details"></a>
+
+## Additional Empirical Details
+
+<a id="app-protocol-cleaning"></a>
 ## Empirical Evidence on Pricing Granularity and Insurer Withdrawal
 
 ### Data: controlled household-insurance quotes as “mystery shopping” observations
@@ -47,17 +88,9 @@ We study two climate-related perils central to the French Cat-Nat debate: clay s
 
 **RGA (clay shrink–swell).** RGA exposure is defined using public geological susceptibility layers (BRGM/GeoRisques), which classify parcels into discrete exposure categories (e.g., none/low/medium/high). We combine these layers with the local history of Cat-Nat recognitions to identify communes where RGA is both salient and spatially heterogeneous ([Géorisques: dossier expert sur le retrait-gonflement des argiles](https://www.georisques.gouv.fr/consulter-les-dossiers-thematiques/retrait-gonflement-des-argiles)). The main RGA study uses two communes in the Puy-de-Dôme (see [RGA appendix](#app-a-1)): Beaumont, a “hotspot” commune with a strong Cat-Nat drought history and meaningful within-commune heterogeneity in mapped RGA exposure. We select a total of 10 real addresses: 5 in low/no exposure and 5 in medium/high exposure  in Beaumont.
 
+**Flood risk (river overflow).** Flood exposure is defined using publicly available hazard information (TRI/PPRI-type layers) and a binary classification of whether an address is located inside a mapped flood zone for river overflow ([Géorisques: dossier expert sur les inondations](https://www.georisques.gouv.fr/consulter-les-dossiers-thematiques/dossier-expert-sur-les-inondations)). The main flood study uses a commune in Ille-et-Vilaine (see [flood-risk appendix](#app-a-2)): Guipry-Messac, a commune crossed by the Vilaine river, with high flood recurrence and strong within-commune topographic heterogeneity. As for RGA, we collect 10 addresses in Guipry-Messac : 5 outside and 5 inside the flood zone. We additionally ensure that selected addresses are broadly comparable on RGA exposure so that the flood contrast is not mechanically confounded by clay susceptibility.
+
 Grouping addresses in “clusters of five” allows us to average premiums within risk classes and reduce the influence of idiosyncratic geocoding issues.
-
-**Flood risk (river overflow).** Flood exposure is defined using publicly available hazard information (TRI/PPRI-type layers) and a binary classification of whether an address is located inside a mapped flood zone for river overflow ([Géorisques: dossier expert sur les inondations](https://www.georisques.gouv.fr/consulter-les-dossiers-thematiques/dossier-expert-sur-les-inondations)). The main flood study uses two communes in Ille-et-Vilaine (see [flood-risk appendix](#app-a-2)): (i) Guipry-Messac, a commune crossed by the Vilaine river, with high flood recurrence and strong within-commune topographic heterogeneity; and (ii) Val d’Anast as a low-exposure reference commune. As for RGA, we collect 10 addresses in Guipry-Messac : 5 outside and 5 inside the flood zone. We additionally ensure that selected addresses are broadly comparable on RGA exposure so that the flood contrast is not mechanically confounded by clay susceptibility.
-
-### Outcomes: intensive and extensive margins
-
-For each insurer $i$ and address $j$, we observe: (i) a binary indicator $q_{ij}$ equal to one if a quote is issued (and zero otherwise), and (ii) the quoted premium $p_{ij}$ when $q_{ij}=1$.
-
-Under Cat-Nat, the extensive margin is especially policy-relevant because catastrophe coverage is bundled with the base household contract ([Moriah et al.: *Contributions of geolocated weather and building-related data for insurance assessment of flood risks*](https://arxiv.org/abs/2603.02418)). When an insurer does not quote the base policy at a given micro-location, Cat-Nat coverage becomes effectively unavailable from that insurer at that address. Hence, analyzing non-quotes complements premium dispersion: it distinguishes price-based segmentation (intensive margin) from localized withdrawal (extensive margin).
-
-These outcomes map naturally into two margins of climate-related market adjustment: *(a) the intensive margin* (pricing segmentation: changes in $p_{ij}$ with exposure), and *(b) the extensive margin* (effective availability: changes in $q_{ij}$ with exposure). In the French Cat-Nat setting, the extensive margin is especially informative because Cat-Nat coverage is attached to the household-insurance contract: if an insurer does not quote the base contract for a given micro-location, Cat-Nat coverage becomes effectively unavailable from that insurer at that address ([Caisse Centrale de Réassurance (CCR): Réassurance publique — catastrophes naturelles](https://www.ccr.fr/activites/reassurances-et-fonds-publics/catastrophes-naturelles/); [Loi n° 82-600 du 13 juillet 1982 relative à l’indemnisation des victimes de catastrophes naturelles](https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000691989)).
 
 ### Identification logic and empirical summaries
 
@@ -65,116 +98,8 @@ Our identification strategy relies on tightly controlled within-area comparisons
 
 Our interpretation rests on two simple points. First, by construction, the only input that changes across observations is location; all policyholder and dwelling characteristics are fixed. Second, the perils we study (RGA and riverine flooding) feature sharp micro-spatial gradients that can plausibly vary within a single commune, making address-level overlays and geocoded scoring operationally relevant ([Moriah et al.: *Contributions of geolocated weather and building-related data for insurance assessment of flood risks*](https://arxiv.org/abs/2603.02418)). In this context, systematic within-insurer premium differences between low- and high-exposure addresses inside the same commune are consistent with fine-grained geographic risk classification, while systematic reductions in quote rates in the highest-exposure micro-areas capture extensive-margin supply restriction (selective non-quoting/withdrawal).
 
-Given the small sample sizes inherent to a controlled quote design, we summarize outcomes using cluster-level averages (five addresses per exposure class) and insurer-specific contrasts. For each insurer $i$, we report (i) the difference in average log premiums between high- and low-exposure addresses,
+Given the small sample sizes inherent to a controlled quote design, we summarize outcomes using cluster-level averages (five addresses per exposure class) and insurer-specific contrasts. 
 
-$$
-\Delta_i \equiv \overline{\log p}_{i,\text{high}} - \overline{\log p}_{i,\text{low}},
-$$
-
-computed conditional on a quote being issued, and (ii) the difference in quote rates between high- and low-exposure addresses,
-
-$$
-\Gamma_i \equiv \overline{q}_{i,\text{high}} - \overline{q}_{i,\text{low}}.
-$$
-
-We compute these contrasts separately for RGA and floods.
-
-### Results: heterogeneity in pricing granularity and withdrawal
-
-> **Passage en bleu dans le LaTeX original.**
->
-> **RGA main study: Beaumont (within-commune analysis).** We begin with an illustrative comparison in Thorigny-sur-Marne (Seine-et-Marne), where two addresses within the same commune differ sharply in mapped RGA exposure. Table 1 summarizes the premiums obtained from four anonymized insurers (A–D). Two patterns are already visible: insurer C increases the premium in the high-exposure address (consistent with within-commune segmentation), while insurer D does not quote in the high-exposure address (consistent with selective withdrawal).
-
-**Proof-of-concept: two-address contrast in a high exposition-RGA commune.** We begin with an illustrative comparison in Thorigny-sur-Marne (Seine-et-Marne), where two addresses within the same commune differ sharply in mapped RGA exposure. Table 1 summarizes the premiums obtained from four anonymized insurers (A–D). Two patterns are already visible: insurer C increases the premium in the high-exposure address (consistent with within-commune segmentation), while insurer D does not quote in the high-exposure address (consistent with selective withdrawal).
-
-*Table 1. Illustrative two-address comparison (Thorigny-sur-Marne): mean quoted premiums (in Euros) by insurer and RGA exposure. When an insurer does not provide an offer, we report “no quote” (extensive-margin withdrawal).*
-
-| Insurer | Very low RGA exposure | Very high RGA exposure |
-|---|---:|---:|
-| A | 294 | 294 |
-| B | 572 | 572 |
-| C | 569 | 680 |
-| D | 208 | *no quote* |
-
-**RGA main study: Beaumont (within-commune) and Saint-Genès-Champanelle (reference).** We next turn to the clustered design in the Puy-de-Dôme. Table 2 shows quote availability in Beaumont: insurers A–C quote systematically in both low- and high-exposure clusters (5/5), whereas insurer D quotes only once in the five high-exposure addresses (1/5). This is a clear extensive-margin response: D uses RGA exposure as a near-binary filter for participation.
-
-*Table 2. RGA (Beaumont): number of issued quotes (out of 5) by exposure class.*
-
-| Insurer | Low/no RGA exposure | Medium/high RGA exposure |
-|---|---:|---:|
-| A | 5 | 5 |
-| B | 5 | 5 |
-| C | 5 | 5 |
-| D | 5 | 1 |
-
-Conditional on quoting, Table 3 reports mean premiums across the two Beaumont clusters. Insurers A and B post identical premiums across low- and high-exposure addresses, consistent with the absence of infra-communal RGA zoning. By contrast, insurer C increases the premium by about 25% in the high-exposure cluster (from 409 to 511 euros), consistent with fine geocoded RGA classification. For insurer D, the average premium among the (rare) accepted high-exposure addresses is slightly lower; we interpret this not as “reverse” pricing but as a by-product of strong selection (only a narrow subset of high-exposure addresses is accepted) and potential differences between the public RGA layer and the insurer’s internal risk score.
-
-*Table 3. RGA (Beaumont): mean quoted premiums (Euros) by exposure cluster (within insurer). Means are computed over up to 5 addresses per cluster; when fewer quotes are issued, the mean is computed over the available quotes and the number of quotes is reported in Table 2.*
-
-| Insurer | Low/no RGA exposure | Medium/high RGA exposure |
-|---|---:|---:|
-| A | 115 | 115 |
-| B | 400 | 400 |
-| C | 409 | 511 |
-| D | 202 | 187 |
-
-Finally, comparing low-exposure clusters across Beaumont and Saint-Genès-Champanelle helps diagnose the *geographic level* at which some insurers pool risk. In this contrast, insurer A remains flat (no detectable RGA zoning even at the commune level), while insurer B charges a higher premium in Beaumont than in Saint-Genès-Champanelle despite both clusters being low-exposure (consistent with commune-level zoning that loads the commune’s overall RGA history rather than parcel-level exposure).
-
-**Flood main study: Guipry-Messac (within-commune) and Val d’Anast (reference).** The flood study yields parallel patterns. Table 4 reports quote availability in Guipry-Messac: A–C quote in all addresses (5/5 in and out of the flood zone), whereas D never quotes within the flood zone (0/5). Compared to RGA, the extensive-margin response of D is even sharper.
-
-*Table 4. Floods (Guipry-Messac): number of issued quotes (out of 5) by flood-zone status.*
-
-| Insurer | Outside flood zone | Inside flood zone |
-|---|---:|---:|
-| A | 5 | 5 |
-| B | 5 | 5 |
-| C | 5 | 5 |
-| D | 5 | 0 |
-
-On the intensive margin, insurers A and B again show no infra-communal differentiation: premiums are identical inside and outside the flood zone (110 euros for A; 313 euros for B). Insurer C exhibits strong fine-grained flood pricing, increasing the premium from 288 euros outside the flood zone to 444 euros inside (about +54%), consistent with the use of flood-hazard overlays (PPRI/TRI-type information and/or distance-to-river scoring). Insurer D’s absence of quotes inside the flood zone confirms pure withdrawal on that segment.
-
-### Interpretation: a “three-speed” market
-
-Taken together, the quote evidence suggests a market with three coexisting strategic profiles: (i) *coarse pooling* (A), with little to no detectable use of climate-hazard zoning; (ii) *commune-level pooling* (B), where some hazards (notably RGA) enter pricing at the commune level but not at the address level; and (iii) *fine geocoded segmentation* (C), with large within-commune premium differentials aligned with mapped hazard exposure. Alongside these profiles, we observe *selective withdrawal* (D) concentrated in the highest-exposure micro-areas, operating as an extensive-margin adjustment that can emerge even in a system where Cat-Nat coverage is formally attached to household insurance.
-
-These facts motivate the modeling section: pricing granularity is not only a technical feature but a strategic choice that shapes rivals’ portfolio composition and can produce both short-run responses (repricing, tightening) and long-run equilibrium outcomes (segmentation, concentration, and reduced effective availability in high-risk micro-areas). The next section formalizes these mechanisms in a dynamic framework: (i) pricing granularity constrains the feasible set of prices through the rating partition, (ii) participation captures non-quoting as a strategic choice, and (iii) renewal inertia implies that current pricing and participation decisions reshape future portfolio composition. The objective is to connect within-commune price dispersion, tail withdrawal, and long-run market reconfiguration within a single, tractable competition model.
-
-## Empirical Pricing Granularity
-
-<a id="app-a-1"></a>
-
-### RGA (clay shrink–swell)
-
-**Beaumont.** Beaumont covers 4.0 km² and had 10,787 inhabitants in 2022 (see left-hand side of Figure 1). Located at the foothills of the volcanic uplands of the *Plateau des Dômes* and near the Limagne plain, Beaumont is structured by the Artière valley and its alluvial deposits, at the interface with sedimentary formations (marls, clays, and limestones). In this setting, the presence of clay-rich and marl layers (often described as *argilo-calcareous* units) is consistent with sensitivity to clay shrink–swell (RGA), which is triggered by alternating drought and rehydration episodes. The *Fonds Prévention Argile* classifies Beaumont as *high* RGA exposure and reports multiple Cat-Nat recognitions for drought-related ground movements, making it a natural case to illustrate within-municipality heterogeneity and its potential implications for pricing and underwriting ([Ville de Beaumont: Les mémoires de l’eau — Beaumont](https://www.beaumont63.fr/IMG/pdf/beaumont2009-eau.pdf); [Fonds Prévention Argile: Risques Retrait-Gonflement à Beaumont](https://fonds-prevention-argile.beta.gouv.fr/rga/commune/beaumont-63032)).
-
-**Saint-Genès-Champanelle.** Saint-Genès-Champanelle covers 51.6 km² and had 3,974 inhabitants in 2022 (see right-hand side of Figure 1). It is a rural municipality on the *Plateau des Dômes* (Chaîne des Puys), located in headwater areas that feed the Artière stream system, which then drains more urbanized municipalities toward the Clermont-Ferrand area. Geologically, the territory combines volcanic units with sedimentary formations that may include marl and clay components; this configuration is consistent with localized exposure to RGA depending on the sector. The *Fonds Prévention Argile* map indicates *high* RGA hazard on the municipality, making it a useful example of how drought-induced ground movement risk can vary substantially at short distances even within a single commune ([Fonds Prévention Argile: Risques Retrait-Gonflement à Saint-Genès-Champanelle](https://fonds-prevention-argile.beta.gouv.fr/rga/commune/saint-genes-champanelle-63345); [BRGM: Notice de carte géologique 0693N](https://ficheinfoterre.brgm.fr/Notices/0693N.pdf)).
-
-<p align="center">
-  <img src="/figures/Beaumont.png" width="45%" alt="Beaumont">
-  <img src="/figures/SaintGenes.png" width="45%" alt="Saint-Genès-Champanelle">
-</p>
-
-<p align="center"><em>Figure 1. Beaumont (left) and Saint-Genès-Champanelle (right).</em></p>
-
-<a id="app-a-2"></a>
-
-### Flood risk (river overflow)
-
-**Guipry-Messac.** Guipry-Messac covers 92.0 km² and had 7,243 inhabitants in 2022 (see left-hand side of Figure 2). It is a valley municipality located along the Vilaine River, connected to the broader Vilaine network and local tributaries such as the Semnon in the surrounding area. The territory is covered by the *Plan de Prévention du Risque Inondation* (PPRI) “Moyenne Vilaine et affluents” (approved in 2005), which documents flood-prone areas and provides the regulatory basis for land-use constraints in exposed zones. At the basin scale, territorial diagnostics highlight the recurrence of major flood episodes (e.g., 1995, 1999, 2001, and the winter 2013–2014 sequence) and emphasize the role of downstream and upstream hydraulic infrastructure (including the Arzal dam near the estuary and several dams on the upper Vilaine) in shaping water levels and flood propagation ([Ville de Guipry-Messac: PPRI (Plan de Prévention du Risque Inondation)](https://www.guipry-messac.fr/vie-municipale/urbanisme/ppri/); [Préfecture d’Ille-et-Vilaine: diagnostic territorial — cartographie, secteur Guipry-Messac](https://www.ille-et-vilaine.gouv.fr/contenu/telechargement/64878/500662/file/Annexe_2_Diagnostic_territorial_Carto_maj2024.pdf); [Préfecture d’Ille-et-Vilaine: annexe 1 — diagnostic territorial, bassin de la Vilaine](https://www.ille-et-vilaine.gouv.fr/contenu/telechargement/65211/502712/file/Annexe_1_Diagnostic_territorial.pdf); [Sandre/Eaufrance: La Vilaine \[J---0060\]](https://www.sandre.eaufrance.fr/geo/CoursEau_Carthage2017/J---0060); [Sandre/Eaufrance: Le Semnon \[J76-0300\]](https://www.sandre.eaufrance.fr/geo/CoursEau_Carthage2017/J76-0300)).
-
-**Val d’Anast.** Val d’Anast covers 77.9 km² and had 3,925 inhabitants in 2022 (see right-hand side of Figure 2). Created in 2017 from the merger of Campel and Maure-de-Bretagne, it belongs to the Vilaine basin and, more specifically, to the Aff sub-basin (a tributary of the Oust). An opinion from the regional environmental authority (MRAe Bretagne) notes that the Aff (west of the town center) and the Combs stream (to the east and south) are identified in the floodplain atlas, and that parts of the Maure-de-Bretagne center are potentially exposed to river overflow. These hydrological features make Val d’Anast a useful case to document how fine-scale exposure corridors within a commune can correlate with market outcomes such as premium dispersion and non-quoting in quote data ([MRAe Bretagne: avis sur la révision du PLU et les zonages d’assainissement de Val d’Anast](https://www.mrae.developpement-durable.gouv.fr/IMG/pdf/10403-10410_avis_plu_zaeu_zaep_valdanast_35_2023ab23_mentionsigne.pdf); [Sandre/Eaufrance: L’Aff \[J8--0240\]](https://www.sandre.eaufrance.fr/geo/CoursEau_Carthage2017/J8--0240)).
-
-<p align="center">
-  <img src="/figures/Guipry.png" width="45%" alt="Guipry-Messac">
-</p>
-
-<p align="center"><em>Figure 2. Guipry-Messac.</em></p>
-
-<a id="app-empirical-details"></a>
-
-## Additional Empirical Details
-
-<a id="app-protocol-cleaning"></a>
 
 ### Quote collection protocol and cleaning
 
@@ -186,15 +111,11 @@ This appendix documents the data-generating process behind our empirical evidenc
 
 **Insurer panel and anonymization.** We rely on a panel of four household insurers (anonymized as A–D). The panel is not intended to be exhaustive; the empirical results should be read as *illustrative evidence* of mechanisms (pricing segmentation vs. non-availability) rather than as market-wide parameter estimates ([Mildenhall and Major: *Pricing Insurance Risk: Theory and Practice*](https://onlinelibrary.wiley.com/doi/book/10.1002/9781119756538)).
 
-**Choice of case-study communes and addresses.** For each peril, we implement the same two-layer comparison: (i) *within-commune* (high- vs. low-exposure addresses inside a “hotspot” commune, to detect infra-communal granularity), and (ii) *across-communes* (a low-exposure “reference” commune, to detect coarser commune-level segmentation).
+**Choice of case-study communes and addresses.** For each peril, we implement the same layer comparison: *within-commune* (high- vs. low-exposure addresses inside a “hotspot” commune, to detect infra-communal granularity).
 
-- **RGA (clay shrink–swell).** We select two communes in the Puy-de-Dôme (63): (a) *Beaumont* (63110) as a hotspot with heterogeneous BRGM exposure within the commune and a strong CatNat history; (b) *Saint-Genès-Champanelle* (63122) as a reference commune with low exposure and a very limited CatNat history. We then select 15 real addresses:
-  - Beaumont: 10 addresses, split into two clusters of 5 in (i) high-exposure zones and (ii) low/no-exposure zones;
-  - Saint-Genès-Champanelle: 5 addresses, all in low/no-exposure zones.
+- **RGA (clay shrink–swell).** We select a commune in the Puy-de-Dôme (63):  *Beaumont* (63110) as a hotspot with heterogeneous BRGM exposure within the commune and a strong CatNat history. We then select 10 real addresses in Beaumont split into two clusters of 5 in (i) high-exposure zones and (ii) low/no-exposure zones :
 
-- **Riverine flooding (overflow).** We select two communes in Ille-et-Vilaine (35): (a) *Guipry-Messac* (35480) as a hotspot commune along the Vilaine with clear topographic heterogeneity; (b) *Val d’Anast* (35330) as a reference commune outside major overflow exposure. We keep the same sample size (15 real addresses):
-  - Guipry-Messac: 10 addresses, split into 5 inside mapped flood-prone areas and 5 outside;
-  - Val d’Anast: 5 addresses outside flood-prone areas.
+- **Riverine flooding (overflow).** We select one commune in Ille-et-Vilaine (35): *Guipry-Messac* (35480) as a hotspot commune along the Vilaine with clear topographic heterogeneity. We keep the same sample size : 10 real addresses in Guipry-Messac, split into 5 inside mapped flood-prone areas and 5 outside;
 
 **Quote requests and recorded outcomes.** For each address and each insurer, we submit a quote request for the standardized profile. The recorded outcome is:
 
@@ -222,13 +143,6 @@ Given the small sample size by construction, robustness is assessed through re-a
 
 - **RGA:** grouping BRGM classes as (medium+high) vs. (none+low), versus a stricter split (high only) vs. (none+low).
 - **Flooding:** (inside vs. outside) mapped flood-prone areas, versus distance-based bins to the main river segment (when distance can be constructed consistently from GIS layers).
-
-**Within-commune vs. across-communes decomposition.** To separate infra-communal granularity from broader territorial segmentation, we report two contrasts for each insurer:
-
-1. a *within-hotspot* contrast (high- vs. low-exposure addresses inside the hotspot commune), and
-2. an *across-communes* contrast (low-exposure addresses in the hotspot commune vs. addresses in the reference commune).
-
-This decomposition directly maps to the question “address-level rating” versus “commune-level mutualization.”
 
 **Availability margin: alternative coding.** We verify that conclusions about withdrawal are not driven by a single interpretation of “non-quote” by (i) treating non-quotes as missing (availability analysis only), and (ii) re-expressing availability as a binary outcome in simple descriptive regressions (logit/probit) with cluster-level exposure indicators.
 
