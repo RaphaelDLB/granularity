@@ -15,7 +15,8 @@ Climate Granularity, Part 1
 
 # Purpose
 
-This notebook is intentionally minimal. It provides additional informations about Section 3, *Exploratory quote evidence*. It also rebuilds the four central scenarios and produces only the four figures used in the paper:
+
+This notebook is intentionally minimal. It provides additional detail on the controlled quote-collection exercise summarised in Section 3 of the paper, *Exploratory quote evidence*. It also rebuilds the four central scenarios and produces only the four figures used in the paper:
 
 1.  relative premium paths by insurer and scenario;
 2.  market shares by risk class and scenario;
@@ -27,8 +28,8 @@ The notebook is self-contained.
 # Exploratory quote evidence
 
 ## Pilot Study: Two-Address Contrast (Thorigny-sur-Marne)
+As a preliminary proof-of-concept, we collected quotes for two addresses within the same municipality (Thorigny-sur-Marne, Seine-et-Marne) featuring sharply contrasting mapped RGA exposure levels. This pilot exercise confirms the coexistence of within-commune premium segmentation (Insurer C) and extensive-margin withdrawal (Insurer D) before deploying the full clustered protocol reported in Table 1 of the paper.
 
-As a preliminary proof-of-concept, we collected quotes for two addresses within the same municipality (Thorigny-sur-Marne, Seine-et-Marne) featuring contrasting RGA exposure levels. This pilot test confirms the coexistence of within-commune premium segmentation (Insurer C) and extensive-margin withdrawal (Insurer D) before deploying the full clustered protocol.
 
 | Insurer | Very low RGA exposure (Premium in €) | Very high RGA exposure (Premium in €) |
 | :--- | :---: | :---: |
@@ -36,6 +37,8 @@ As a preliminary proof-of-concept, we collected quotes for two addresses within 
 | **B** | 572 | 572 |
 | **C** | 569 | 680 |
 | **D** | 208 | *No quote* |
+
+Insurers A and B charge identical premiums at both addresses. Insurer C increases the premium by approximately 20% as the address moves from very low to very high RGA exposure within the same commune. Insurer D provides a quote at the low-exposure address but returns no purchasable offer at the high-exposure address. This two-address example is visually suggestive but less informative than the clustered contrasts in Table 1, which average over five addresses per exposure class to reduce sensitivity to idiosyncratic geocoding or cadastral artefacts. It is reported here for completeness.
 
 ## Empirical Pricing Granularity
 
