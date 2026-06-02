@@ -94,13 +94,12 @@ Conditional on these two filters, we derived the modal or most representative va
 
 | Feature | Retained Value | Source |
 | :--- | :---: | :---: |
-| **Distance to nearest neighbouring dwelling** | Less than 50 m | 294 |
+| **Distance to nearest neighbouring dwelling** | Less than 50 m | INSEE |
 | **Occupancy status** | Owner-occupier | INSEE |
 | **Principal residence** | Yes | INSEE |
 | **Days absent per year** | Fewer than 45 days | INSEE |
 | **Habitable surface** | 120 m² | INSEE |
-| **Number of rooms** | 5 rooms, each under 30 m² | INSEE |
-| **Construction year** | Before 1990 | INSEE |
+| **Number of rooms** | 5 rooms | INSEE |
 | **Marital status** | Married | INSEE |
 | **Number of residents aged 25 or over** | 2 | INSEE |
 | **Number of residents aged under 25** | 0 | INSEE |
