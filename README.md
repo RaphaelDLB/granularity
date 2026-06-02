@@ -30,7 +30,6 @@ The notebook is self-contained.
 ## Pilot Study: Two-Address Contrast (Thorigny-sur-Marne)
 As a preliminary proof-of-concept, we collected quotes for two addresses within the same municipality (Thorigny-sur-Marne, Seine-et-Marne) featuring sharply contrasting mapped RGA exposure levels. This pilot exercise confirms the coexistence of within-commune premium segmentation (Insurer C) and extensive-margin withdrawal (Insurer D) before deploying the full clustered protocol reported in Table 1 of the paper.
 
-
 | Insurer | Very low RGA exposure (Premium in €) | Very high RGA exposure (Premium in €) |
 | :--- | :---: | :---: |
 | **A** | 294 | 294 |
@@ -72,22 +71,47 @@ We selected 10 real addresses in Guipry-Messac: 5 outside and 5 inside the mappe
 
 <a id="app-empirical-details"></a>
 
-## Additional Empirical Details
-
 <a id="app-protocol-cleaning"></a>
-## Empirical Evidence on Pricing Granularity and Insurer Withdrawal
+## Empirical design and protocol 
 
-### Data: controlled household-insurance quotes as “mystery shopping” observations
+### Design Logic
 
-Our empirical evidence is based on *quotes* (“*devis*” in French) collected for a standardized household-insurance applicant and a fixed set of contract options, across a set of carefully chosen addresses. The goal is not to measure average market prices, but to identify how insurers’ *pricing and acceptance* respond to fine-grained geographic variation in climate-related hazards, holding everything else constant. Methodologically, the approach is close in spirit to audit or “mystery shopping” designs widely used to detect differential treatment when observables are controlled by the researcher ([Bertrand and Mullainathan: *Are Emily and Greg More Employable than Lakisha and Jamal?*](https://doi.org/10.1257/0002828042002561)).
+The quote-collection exercise follows the logic of a controlled plan d'expérience. We hold fixed (i) the insured profile, (ii) dwelling characteristics, and (iii) the coverage, deductible, and option choices within each insurer's online quotation journey. The only factor varied by construction is the address. The objective is to attribute any change in quoted price or quote availability to geographic risk segmentation rather than to observable policyholder heterogeneity. This approach is close in spirit to audit and mystery-shopping designs used to detect differential treatment when observables are controlled by the researcher.
 
-Each observation corresponds to an insurer’s proposed annual premium (when a quote is issued) or to a “non-quote” outcome (when the insurer does not offer coverage for the standardized profile at the given address). We define a “non-quote” as an outcome in which, after completing the full online quoting path with the standardized inputs, the insurer does not return a purchasable offer for that address (e.g., an explicit refusal or a redirection to offline handling without a price). We interpret non-quotes as extensive-margin supply restrictions rather than as missing data.
+### Standardized insured profile 
 
-Importantly, household-insurance products are not fully standardized across insurers (coverage limits, exclusions, and deductibles differ), so premium levels are *not* directly comparable across firms. For that reason, we focus on *within-insurer* comparisons: how a given insurer’s premium (or willingness to quote) changes as the address moves from low to high exposure within a narrowly defined geographic context. The panel of insurers is not intended to be exhaustive; results are illustrative of mechanisms rather than market-wide parameter estimates.
+The standardised profile serves two simultaneous objectives: it must be (i) representative enough to fall within standard rating engine parameters rather than triggering exceptional underwriting treatment, and (ii) exposed enough to climate-related property risk that fine-grained geographic variation is plausibly priced. These two constraints jointly shape every feature choice described below.
 
-### Standardized insured profile and contract choices
+**Selection logic: representativeness through INSEE filtering**
 
-To maximize the likelihood of observing differentiated pricing or withdrawal, we employ a profile that is deliberately *exposed* along dimensions insurers plausibly use to assess vulnerability (e.g., detached housing rather than a high-floor apartment). All non-geographic characteristics are held fixed across quotes: socio-demographics (age bracket, household composition, occupation category), occupancy status, and structural dwelling attributes (housing type, surface, number of rooms, construction year, basic security features), as well as the selected bundle of options. We then vary *only* the address, and we interpret any systematic within-insurer differences as reflecting the insurer’s use of geographic risk classification (zoning/scoring) and/or geographic acceptance rules.
+A subset of profile features — those marked in the collection spreadsheet — were selected empirically rather than arbitrarily. The starting point is the observation that older detached houses are structurally more vulnerable to clay shrink–swell (RGA): foundations predating modern building norms are less designed to accommodate differential ground movement induced by alternating drought and rehydration cycles. We therefore wanted a profile that is both exposed along this dimension and common enough in the French housing stock to be priced routinely by insurers.
+To operationalise this, we filtered the relevant INSEE housing microdata on two criteria:
+
+- **Housing type**: detached house (maison individuelle), to select the vulnerability class relevant to ground-level and foundation-level perils (RGA and riverine flooding);
+- **Construction year**: before 1990, to capture the pre-norm stock that is most exposed to RGA-related structural damage.
+
+Conditional on these two filters, we derived the modal or most representative values for the remaining socio-demographic and dwelling characteristics. The features selected through this INSEE-based procedure are the following:
+
+| Feature | Retained Value | Source |
+| :--- | :---: | :---: |
+| **Distance to nearest neighbouring dwelling** | Less than 50 m | 294 |
+| **Occupancy status** | Owner-occupier | INSEE |
+| **Principal residence** | Yes | INSEE |
+| **Days absent per year** | Fewer than 45 days | INSEE |
+| **Habitable surface** | 120 m² | INSEE |
+| **Number of rooms** | 5 rooms, each under 30 m² | INSEE |
+| **Construction year** | Before 1990 | INSEE |
+| **Marital status** | Married | INSEE |
+| **Number of residents aged 25 or over** | 2 | INSEE |
+| **Number of residents aged under 25** | 0 | INSEE |
+| **Occupational category** | Retired | INSEE |
+| **Date of birth** | 1954  | INSEE |
+
+This combination — a retired married couple, owner-occupiers of a 120 m² detached house built before 1980, with no young dependants — defines the modal profile within the filtered INSEE stock. It is the most internally consistent and statistically frequent profile among French households living in older detached houses, and therefore the one most likely to be priced routinely rather than flagged for manual underwriting review.
+
+The remaining features were set to values chosen to define a straightforward, unexceptional applicant, without drawing on external data. The objective was to avoid any characteristic that might trigger non-standard treatment unrelated to geographic risk:
+
+Across all quote requests — whether for RGA in Beaumont or for flooding in Guipry-Messac — this profile is held strictly fixed. The address is the only input that varies. Any systematic within-insurer difference in quoted premiums or quote availability across addresses can therefore be attributed to geographic risk segmentation rather than to observable policyholder or dwelling heterogeneity.
 
 ### Risk classification and address selection
 
